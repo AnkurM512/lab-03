@@ -33,24 +33,52 @@ def send_mail(recipient: str, sender: str, subject: str, body: str) -> bool:
 
 def get_inbox(recipient: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+    it goes to the path that the inbox is at then formats the string into the variable response which prints out the inbox
+    
+    Args: 
+    	recipient (str): the recipient name as a string
+    	
+    Returns:
+    	no returns, instead prints out the inbox
     """
     response = requests.get(f'{SERVER}/mail/inbox/{recipient}')
     pprint.pprint(response.json())
 
 def get_sent(sender: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+    it goes to the path where the sender emails are stored, then fomrats the string into the variable response
+    
+    Args:
+    	sender (str): the sender name as a strin
+    	
+    Returns:
+    	no returns, instead prints out the sender inbox as a formatted string
     """
     response = requests.get(f'{SERVER}/mail/sent/{sender}')
     pprint.pprint(response.json())
 
 def get_mail(mail_id: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+    it goes to the path where a specific email corresponding to the entered id is stored then prints that email
+    
+    Args: 
+    	mail_id (str): the mail id as a string
+    
+    Returns:
+    	no returns, instead prints out the email
     """
     response = requests.get(f'{SERVER}/mail/{mail_id}')
     pprint.pprint(response.json())
 
 def delete_mail(mail_id: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+    goes to the path then deletes it based on the mail id
+    
+    Args:
+    	mail id (str): takes in the mail id as a string
+    	
+    Returns:
+    	no returns, instead prints out whether not the delete was successful
     """
     response = requests.delete(f'{SERVER}/mail/{mail_id}')
     pprint.pprint(response.json())
