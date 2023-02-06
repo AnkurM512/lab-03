@@ -13,7 +13,7 @@ URL2 = "https://official-joke-api.appspot.com/random_ten"
 API_KEY = "7bc51ff33209923edb37dd917be6efdb"
 
 def get_weather(city) -> Dict:
-    res = requests.get(URL, params={"q": city, "appid": API_KEY})
+    res = requests.get(URL, params={"q": city, "appid": API_KEY, "units": "imperial"})
     return res.json()
 
 # TODO: try connecting to a another API! e.g. reddit (https://www.reddit.com/dev/api/)
